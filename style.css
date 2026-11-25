@@ -89,3 +89,187 @@ html, body {
     transform: translate(-50%, 0) translate(-2.5vmin, 0);
     box-shadow: 5vmin 0;
 }
+
+ .beak {
+         width: 4vmin;
+         height: 3vmin;
+         border-left: 4vmin solid var(--orange1);
+         border-top: 1.5vmin solid transparent;
+         border-bottom: 1.5vmin solid transparent;
+         top: 60%;
+         left: 50%;
+      }
+
+      /* The snood starts at the same center line as the beak. Shifting it
+   left by its full width places it just to the left of that line. */
+      .red {
+         width: 2.5vmin;
+         height: 6vmin;
+         background: #d00;
+         border-radius: 100% / 100% 0 100% 100%;
+         top: 60%;
+         left: 50%;
+         transform: translate(-100%, 0);
+      }
+
+      /* STEP 4 | LEGS AND TOES
+   Start both legs at the center and shift them 4vmin in opposite
+   directions. The repeating gradient adds thin stripes over the orange. */
+      .leg {
+         width: 3%;
+         height: 21%;
+         background: var(--orange1);
+         top: 79%;
+         left: 50%;
+         transform: translate(-50%, 0) translate(-4vmin, 0);
+         border-radius: 5vmin / 50%;
+         background-image:
+            repeating-linear-gradient(transparent 0 10%, rgba(0, 0, 0, 0.1) 0 11%);
+      }
+
+      .leg+.leg {
+         transform: translate(-50%, 0) translate(4vmin, 0);
+      }
+
+      /* Each leg gets two toes from the same rule. Both pivot at the top
+   center so they stay attached as they rotate. The final rule turns
+   the second toe the opposite way so the toes spread apart. */
+      .leg::before,
+      .leg::after {
+         content: "";
+         display: block;
+         position: absolute;
+         width: 80%;
+         height: 35%;
+         left: 50%;
+         bottom: 0;
+         background: var(--orange1);
+         border-radius: 5vmin;
+         transform-origin: 50% 0;
+         transform: translate(-50%, 0) rotate(30deg);
+      }
+
+      .leg::after {
+         transform: translate(-50%, 0) rotate(-30deg);
+      }
+
+      /* STEP 5 | HAT
+   Start with a wide, short oval for the brim. The inset shadow stays
+   inside the crown and paints the lighter band across the bottom. */
+      .hat-bottom {
+         width: 35%;
+         height: 8%;
+         border-radius: 50%;
+         background: black;
+         top: 15%;
+         left: 50%;
+         transform: translate(-50%, 0);
+      }
+
+      .hat-top {
+         width: 16%;
+         height: 20%;
+         background: black;
+         box-shadow: inset 0 -7vmin #fff3;
+         border-radius: 100% / 230% 230% 0% 0%;
+         top: 0;
+         left: 50%;
+         transform: translate(-50%, 0);
+      }
+
+      /* A small bordered box makes the buckle. Its position is measured
+   from the crown, so it follows the hat if the hat moves. */
+      .hat-top::before {
+         content: "";
+         display: block;
+         position: absolute;
+         width: 40%;
+         height: 2vmin;
+         border: 1vmin solid #772;
+         border-radius: 1vmin;
+         bottom: 3.25vmin;
+         left: 50%;
+         transform: translate(-50%, 0);
+      }
+
+      /* STEP 6 | ALL 13 TAIL FEATHERS
+   All 13 feathers overlap until their angles differ. The feather divs
+   come first in the HTML, so the rest of the turkey paints over them. */
+      .tail {
+         width: 10%;
+         height: 40%;
+         background: var(--orange1);
+         border-radius: 100% / 30% 30% 170% 170%;
+         /* Put the pivot at the center of the bottom edge so the tips fan out
+    while the bases stay together. */
+         transform-origin: 50% 100%;
+         top: 30%;
+         left: 50%;
+         transform: translate(-50%, 0);
+      }
+
+      /* nth-child counts all children of .cartoon in HTML order. Since the
+   feathers come first, odd and even alternate the feather colors. */
+      .tail:nth-child(odd) {
+         background: var(--orange1);
+      }
+
+      .tail:nth-child(even) {
+         background: var(--orange2);
+      }
+
+      /* Each transform replaces the base transform, so keep translate to
+   center every feather on the same line. One upright feather and pairs
+   of equal positive and negative angles make a symmetric fan.
+   Add the 17deg rule first and toggle transform-origin in DevTools. */
+      .tail:nth-child(1) {
+         transform: translate(-50%, 0) rotate(0);
+      }
+
+      .tail:nth-child(2) {
+         transform: translate(-50%, 0) rotate(17deg);
+      }
+
+      .tail:nth-child(3) {
+         transform: translate(-50%, 0) rotate(34deg);
+      }
+
+      .tail:nth-child(4) {
+         transform: translate(-50%, 0) rotate(51deg);
+      }
+
+      .tail:nth-child(5) {
+         transform: translate(-50%, 0) rotate(68deg);
+      }
+
+      .tail:nth-child(6) {
+         transform: translate(-50%, 0) rotate(85deg);
+      }
+
+      .tail:nth-child(7) {
+         transform: translate(-50%, 0) rotate(102deg);
+      }
+
+      .tail:nth-child(8) {
+         transform: translate(-50%, 0) rotate(-17deg);
+      }
+
+      .tail:nth-child(9) {
+         transform: translate(-50%, 0) rotate(-34deg);
+      }
+
+      .tail:nth-child(10) {
+         transform: translate(-50%, 0) rotate(-51deg);
+      }
+
+      .tail:nth-child(11) {
+         transform: translate(-50%, 0) rotate(-68deg);
+      }
+
+      .tail:nth-child(12) {
+         transform: translate(-50%, 0) rotate(-85deg);
+      }
+
+      .tail:nth-child(13) {
+         transform: translate(-50%, 0) rotate(-102deg);
+      }
