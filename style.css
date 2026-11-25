@@ -1,6 +1,6 @@
 html, body {
     overflow: hidden;
-    background: #fee;
+    background: radial-gradient(circle at center, #2b4470 0%, #14213d 100%);;
 }
 
 .turkey{
@@ -274,3 +274,152 @@ html, body {
       .tail:nth-child(13) {
          transform: translate(-50%, 0) rotate(-102deg);
       }
+
+      /* === ODYSSEUS DISGUISE === */
+
+/* === ODYSSEUS DISGUISE (REVISED) === */
+
+/* 1. Darker Aegean Sky Background so White Tunic & Arrows Pop */
+html, body {
+   background: radial-gradient(circle at center, #2b4470 0%, #14213d 100%);
+}
+
+/* 2. Messy Curly Hair & Red Warrior Headband */
+.head {
+   clip-path: none;
+}
+
+/* Curly Hair Crown */
+.hat-top {
+   width: 21%;
+   height: 9%;
+   background: #2c1810;
+   border-radius: 50% 50% 20% 20%;
+   top: 10%;
+   box-shadow:
+      -3.5vmin 1.5vmin 0 -0.5vmin #2c1810,
+      3.5vmin 1.5vmin 0 -0.5vmin #2c1810,
+      -2vmin -1.2vmin 0 -0.8vmin #3b2314,
+      2vmin -1.2vmin 0 -0.8vmin #3b2314;
+}
+
+.hat-top::before {
+   display: none;
+}
+
+/* Red Headband */
+.hat-bottom {
+   width: 19.5%;
+   height: 2.8%;
+   background: #c1121f;
+   border-radius: 1vmin;
+   top: 17.5%;
+}
+
+/* Headband Ribbon Tails fluttering to the left */
+.hat-bottom::before,
+.hat-bottom::after {
+   content: "";
+   position: absolute;
+   width: 4.5vmin;
+   height: 1.4vmin;
+   background: #9b111e;
+   left: -3.5vmin;
+   top: 0.8vmin;
+   border-radius: 1vmin;
+   transform: rotate(-20deg);
+}
+
+.hat-bottom::after {
+   top: 2vmin;
+   transform: rotate(-38deg);
+}
+
+/* Rugged Beard */
+.head::after {
+   content: "";
+   position: absolute;
+   width: 96%;
+   height: 46%;
+   background: #2c1810;
+   bottom: -3%;
+   left: 50%;
+   transform: translate(-50%, 0);
+   border-radius: 0 0 50% 50%;
+   z-index: -1;
+}
+
+/* 3. Greek Tunic & Crimson Cloak */
+.body {
+   background: linear-gradient(115deg, #c1121f 0 42%, #f8f9fa 42% 100%);
+   border-radius: 38% 38% 45% 45%;
+   box-shadow: none;
+}
+
+/* Gold/Bronze Belt */
+.body::before {
+   content: "";
+   position: absolute;
+   width: 92%;
+   height: 14%;
+   background: #d4a373;
+   border-top: 0.4vmin solid #faedcd;
+   bottom: 22%;
+   left: 50%;
+   transform: translate(-50%, 0);
+   border-radius: 1vmin;
+}
+
+/* 4. Draped Red Cloak (Left) & Bare Warrior Arm (Right) */
+.wing {
+   height: 25%;
+   width: 15%;
+   background: #c1121f;
+   border-radius: 70% 10% 80% 15%;
+   top: 42%;
+   left: 24%;
+   transform-origin: top right;
+   transform: rotate(-8deg);
+}
+
+.wing + .wing {
+   background: var(--brown2); /* Matches his skin/neck tone for a sleeveless chiton look! */
+   height: 22%;
+   width: 12%;
+   border-radius: 10% 70% 15% 80%;
+   top: 43%;
+   left: auto;
+   right: 26%;
+   transform-origin: top left;
+   transform: rotate(8deg);
+}
+
+
+/* 5. Leather Gladiator Sandals & Greaves */
+.leg {
+   background: repeating-linear-gradient(
+      to bottom,
+      #5c3a21 0 12%,
+      #d2a679 12% 24%
+   );
+}
+
+/* 6. Fan of Arrows Behind Him */
+.tail {
+   width: 2.2%;
+   height: 42%;
+   background: #a47148;
+   border-radius: 0;
+}
+
+.tail::before {
+   content: "";
+   position: absolute;
+   width: 260%;
+   height: 22%;
+   background: #f8f9fa;
+   top: 0;
+   left: 50%;
+   transform: translate(-50%, 0);
+   clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 50% 80%, 0% 100%, 0% 30%);
+}
